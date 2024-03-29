@@ -20,15 +20,10 @@ $stmt->execute([$_SESSION['username']]);
 $userstats = $stmt->fetch(PDO::FETCH_ASSOC);
 
 // Include header
-include_once 'Header.php';
-?>
+include_once 'header.php';
 
-<?php
 // Call the displayStats function
 displayStats($userstats);
-?>
 
-<?php
 // Include footer
-include_once 'Footer.php';
-?>
+include_once 'footer.php';

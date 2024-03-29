@@ -41,7 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $loginError = "Please provide both username and password";
     }
 }
-include_once 'Header.php'; 
+include_once 'header.php';
 ?>
     <h2>Login</h2>
     <?php if(!empty($loginError)) { ?>
@@ -52,4 +52,4 @@ include_once 'Header.php';
         <input type="password" name="password" placeholder="Password" required><br>
         <button type="submit">Login</button>
     </form>
-<?php include_once 'Footer.php'; ?>
+<?php include_once 'footer.php'; ?>

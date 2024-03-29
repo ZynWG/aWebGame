@@ -1,4 +1,4 @@
-<?php include_once 'Header.php'; ?>
+<?php include_once 'header.php'; ?>
 
 <div class="container">
     <h1>Welcome to aWebGame.</h1>
@@ -6,4 +6,4 @@
         <hr>
         <a href="register.php">Register</a>
 </div>
-<?php include_once 'Footer.php'; ?>
+<?php include_once 'footer.php'; ?>

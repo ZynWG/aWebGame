@@ -48,7 +48,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 
-include_once 'Header.php'; 
+include_once 'header.php';
 
 ?>
 
@@ -63,4 +63,4 @@ include_once 'Header.php';
         <small>Password must be at least 8 characters long.</small><br>
         <button type="submit">Register</button>
     </form>
-<?php include_once 'Footer.php'; ?>
+<?php include_once 'footer.php'; ?>

@@ -38,7 +38,7 @@ if (isset($_POST['submit'])) {
 }
 
 // Include Header
-include_once 'Header.php';
+include_once 'header.php';
 ?>
 
 <section id="buy-land">
@@ -71,5 +71,5 @@ include_once 'Header.php';
 
 <?php
 // Include footer
-include_once 'Footer.php';
+include_once 'footer.php';
 ?>

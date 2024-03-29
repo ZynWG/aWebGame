@@ -1,7 +1,7 @@
 <?php
 
 // Database connection Details
-$dbHost = 'localhost';
+$dbHost = '';
 $dbName = '';
 $dbUser = '';
 $dbPass = '';

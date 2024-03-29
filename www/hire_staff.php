@@ -14,7 +14,7 @@ if (!isset($_SESSION['user_id'])) {
 $username = $_SESSION['username'];
 
 // Retrieve user statistics securely from the database
-$userstats = getLandStats($pdo, $username);
+$playerStats = getLandStats($pdo, $username);
 
 // Initialize error and success messages
 $error_message = "";
@@ -34,20 +34,20 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['submit'])) {
         $totalCost = $workerCost + $farmerCost;
 
         // Check if the user has enough gold
-        if ($userstats['gold'] < $totalCost) {
+        if ($playerStats['gold'] < $totalCost) {
             $error_message = "You do not have enough gold to buy that many workers and farmers.";
         } else {
             // Update user's gold and units using prepared statement
             $update_query = "UPDATE users SET gold = gold - ?, worker = worker + ?, farmer = farmer + ? WHERE id = ?";
             $stmt = $pdo->prepare($update_query);
-            $success = $stmt->execute([$totalCost, $workerQty, $farmerQty, $userstats['id']]);
+            $success = $stmt->execute([$totalCost, $workerQty, $farmerQty, $playerStats['id']]);
 
             if ($success) {
-                // Update userstats array and set success message
-                $userstats['gold'] -= $totalCost;
-                $userstats['worker'] += $workerQty;
-                $userstats['farmer'] += $farmerQty;
-                $success_message = "You hired $workerQty workers and $farmerQty farmers. Remaining Gold: {$userstats['gold']} gold.";
+                // Update playerStats array and set success message
+                $playerStats['gold'] -= $totalCost;
+                $playerStats['worker'] += $workerQty;
+                $playerStats['farmer'] += $farmerQty;
+                $success_message = "You hired $workerQty workers and $farmerQty farmers. Remaining Gold: {$playerStats['gold']} gold.";
             } else {
                 $error_message = "Could not buy workers and farmers. Please try again later.";
             }
@@ -61,7 +61,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['submit'])) {
 
 
 // Include header
-include_once 'Header.php';
+include_once 'header.php';
 ?>
 
 <section id="typography">
@@ -92,22 +92,26 @@ include_once 'Header.php';
                             <tbody>
                                 <tr>
                                     <td>Worker</td>
-                                    <td><?= number_format($userstats['worker']) ?></td>
+                                    <td><?= number_format($playerStats['worker']) ?></td>
                                     <td>75 gold each</td>
                                     <td>
                                         <div class="form-group">
-                                            <input type="number" class="form-control" name="worker" min="0">
+                                            <label>
+                                                <input type="number" class="form-control" name="worker" min="0">
+                                            </label>
                                             <label for="worker">Workers</label>
                                         </div>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>Farmer</td>
-                                    <td><?= number_format($userstats['farmer']) ?></td>
+                                    <td><?= number_format($playerStats['farmer']) ?></td>
                                     <td>50 gold each</td>
                                     <td>
                                         <div class="form-group">
-                                            <input type="number" class="form-control" name="farmer" min="0">
+                                            <label>
+                                                <input type="number" class="form-control" name="farmer" min="0">
+                                            </label>
                                             <label for="farmer">Farmers</label>
                                         </div>
                                     </td>
@@ -124,5 +128,5 @@ include_once 'Header.php';
 
 <?php
 // Include footer
-include_once 'Footer.php';
+include_once 'footer.php';
 ?>
