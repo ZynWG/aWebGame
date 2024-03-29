@@ -43,7 +43,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 }
 include_once 'Header.php'; 
 ?>
-
     <h2>Login</h2>
     <?php if(!empty($loginError)) { ?>
         <p><?php echo htmlspecialchars($loginError); ?></p>

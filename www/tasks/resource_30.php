@@ -19,4 +19,3 @@ $stmt->execute();
 
 // Output a success message indicating that the food gain has been updated based on farmers successfully.
 echo "Food Gain updated based on farmers successfully.";
-?>

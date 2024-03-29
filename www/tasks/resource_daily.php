@@ -17,4 +17,3 @@ $stmt->execute();
 
 // Output a success message indicating that the gold has been updated based on land * workers successfully.
 echo "Gold updated based on land * workers successfully.";
-?>
