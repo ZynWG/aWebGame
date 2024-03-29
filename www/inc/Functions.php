@@ -1,5 +1,6 @@
-<?php
+<?php /** @noinspection ALL */
 
+// Will cause problems on windows, The host is Linux
 require_once './inc/DatabaseConfig.php';
 
 // Function to display user statistics securely

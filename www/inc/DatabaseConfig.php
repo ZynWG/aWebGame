@@ -1,10 +1,10 @@
 <?php
 
-// Database connection
+// Database connection Details
 $dbHost = 'localhost';
-$dbName = 'protocol_test';
-$dbUser = 'protocol_test';
-$dbPass = '}+-Mn8^[QczB';
+$dbName = '';
+$dbUser = '';
+$dbPass = '';
 
 try {
     $pdo = new PDO("mysql:host=$dbHost;dbname=$dbName;charset=utf8mb4", $dbUser, $dbPass);
